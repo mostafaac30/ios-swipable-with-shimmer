@@ -133,11 +133,14 @@ class StateSwipingButton extends State<SwipingButton> {
             onSwipeStartcallback: (val, conVal) {
               print("isGrate $conVal");
 
-              SchedulerBinding.instance!
-                  .addPostFrameCallback((_) => setState(() {
-                        isSwiping = val;
-                        opacityVal = 1 - conVal;
-                      }));
+              WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+                if (mounted) {
+                  setState(() {
+                    isSwiping = val;
+                    opacityVal = 1 - conVal;
+                  });
+                }
+              });
             },
           ),
         ],

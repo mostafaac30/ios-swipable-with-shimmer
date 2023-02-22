@@ -27,9 +27,7 @@ class SwipeableWidget extends StatefulWidget {
       required this.onSwipeStartcallback,
       required this.screenSize,
       this.swipePercentageNeeded = 0.75})
-      : assert(child != null &&
-            onSwipeCallback != null &&
-            swipePercentageNeeded! <= 1.0),
+      : assert(swipePercentageNeeded! <= 1.0),
         super(key: key);
 
   @override
